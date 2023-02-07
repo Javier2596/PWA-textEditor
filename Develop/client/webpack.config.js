@@ -18,7 +18,31 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Webpack Plugin'
+      }),
+      new GenerateSW(),
+      new InjectManifest({
+        //what goes here?
+      }), 
+      //fix this
+        new WebpackPwaManifest({
+        name: '',
+        short_name: '',
+        description: '',
+        background_color: '',
+        theme_color: '',
+        start_url: '',
+        publicPath: '',
+        icons: [
+          {
+            src: path.resolve('assets/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
     ],
 
     module: {
