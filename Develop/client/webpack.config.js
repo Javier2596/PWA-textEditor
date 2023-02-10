@@ -22,12 +22,13 @@ module.exports = () => {
         template: './index.html',
         title: 'Webpack Plugin'
       }),
-      new GenerateSW(),
+  
       new InjectManifest({
-        //what goes here?
+        swSrc: './src/src-sw.js',
+        swDest: 'service-worker.js'
       }), 
-      //fix this
-        new WebpackPwaManifest({
+      
+      new WebpackPwaManifest({
         name: '',
         short_name: '',
         description: '',
@@ -48,8 +49,8 @@ module.exports = () => {
     module: {
       rules: [
         {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.m?js$/,
