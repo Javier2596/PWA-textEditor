@@ -29,16 +29,16 @@ module.exports = () => {
       }), 
       
       new WebpackPwaManifest({
-        name: '',
-        short_name: '',
-        description: '',
-        background_color: '',
-        theme_color: '',
-        start_url: '',
-        publicPath: '',
+        name: 'Jate',
+        short_name: 'Jate',
+        description: 'Another Text Editor',
+        background_color: '#272822',
+        theme_color: '#272822',
+        start_url: './',
+        publicPath: './',
         icons: [
           {
-            src: path.resolve('assets/images/logo.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
@@ -58,7 +58,8 @@ module.exports = () => {
           use: {
             loader: 'babel-loader',
             options: {
-              presents: ['@babel/present-env']
+              presents: ['@babel/present-env'],
+              plugins: ['@babel/ plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             }
           }
         }
