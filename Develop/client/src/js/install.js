@@ -17,6 +17,5 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
 // TODO: Add an handler for the `appinstalled` event
 window.addEventListener('appinstalled', (event) => {
-  textHeader.textContent = 'Successfully installed';
   console.log('appinstalled', event);
 });
