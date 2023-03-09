@@ -17,6 +17,7 @@ module.exports = () => {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
@@ -25,11 +26,13 @@ module.exports = () => {
   
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js'
+        swDest: 'src-sw.js'
       }), 
       
       new WebpackPwaManifest({
-        name: 'Jate',
+        fingerprints: false,
+        inject: true,
+        name: 'Just Another Text Editor',
         short_name: 'Jate',
         description: 'Another Text Editor',
         background_color: '#272822',
